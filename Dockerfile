@@ -1,4 +1,4 @@
-FROM node
+FROM node:alpine
 LABEL name="dingdayu <614422099@qq.com>"
 
 ENV VERSION=master
