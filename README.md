@@ -37,10 +37,10 @@ docker-compose up -d
 `docker` 启动
 
 ```
-docker run -d -p 3000:3000 -v ./yapi/config.json:/yapi/config.json registrys/yapi
+docker run -d -p 3000:3000 -v `pwd`/yapi/config.json:/yapi/config.json registrys/yapi
 ```
 
-> 请注意此处的端口和文件挂载。
+> 请注意此处的端口和文件挂载；`pwd` 取当前目录的绝对路径。
 
 4、 测试
 
