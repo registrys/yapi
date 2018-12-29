@@ -14,4 +14,4 @@ EXPOSE 3000
 RUN npm install -g yapi-cli --registry https://registry.npm.taobao.org \
     && npm install --production --registry https://registry.npm.taobao.org
 
-CMD "[ ! -e /yapi/log/init.lock ] && npm run install-server && touch /yapi/log/init.lock; npm run start"
+CMD /bin/bash -c "[ ! -e /home/yapi/log/init.lock ] && npm run install-server && touch /home/yapi/log/init.lock; npm run start"
