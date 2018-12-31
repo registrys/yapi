@@ -1,6 +1,6 @@
 # yapi
 
-[yapi](https://github.com/YMFE/yapi) 的 docker 镜像
+[yapi](https://github.com/YMFE/yapi) 的 docker 镜像: [registrys/yapi](https://cloud.docker.com/u/registrys/repository/docker/registrys/yapi)
 
 ## 引导
 
