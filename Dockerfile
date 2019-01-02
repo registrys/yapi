@@ -4,7 +4,8 @@ LABEL name="dingdayu <614422099@qq.com>"
 ENV VERSION=master
 
 RUN apk add --no-cache --virtual .gyp python curl make g++
-RUN curl -sSL https://github.com/YMFE/yapi/archive/${VERSION}.tar.gz \
+RUN mkdir /yapi \
+    && curl -sSL https://github.com/YMFE/yapi/archive/${VERSION}.tar.gz \
     | tar -xz -C /yapi && mv /yapi/yapi-master /yapi/vendors \
     && cp /yapi/vendors/config_example.json /yapi/config.json
 
