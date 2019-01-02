@@ -8,5 +8,4 @@ services:
       - 3000:3000
     volumes:
       - "./yapi/config.json:/yapi/config.json"
-      - "./yapi/init.lock:/yapi/init.lock"
       - "./log/:/yapi/log/"
