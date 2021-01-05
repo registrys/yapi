@@ -2,10 +2,31 @@ version: '3.1'
 
 services:
   yapi:
-    image: registrys/yapi
+    image: yapi
     restart: always
     ports:
       - 3000:3000
     volumes:
       - "./yapi/config.json:/yapi/config.json"
       - "./log/:/yapi/log/"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:4
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: yapi
+    volumes: 
+        - ./mongo/initdb.d:/docker-entrypoint-initdb.d
+        - ./mongo/etc:/etc/mongo
+        - ./mongo/data/db:/data/db
+    ports: 
+        - 27017:27017
+    healthcheck:
+      test: ["CMD", "netstat -anp | grep 27017"]
+      interval: 2m
+      timeout: 10s
+      retries: 3

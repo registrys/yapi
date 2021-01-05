@@ -1,8 +1,8 @@
 #!/bin/sh
 
 if [ ! -e /yapi/log/init.lock ]; then
-    npm run install-server
+    yarn run install-server
 fi
 
 touch /yapi/log/init.lock
-npm run start
+yarn run start

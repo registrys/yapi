@@ -1,7 +1,7 @@
 FROM node:alpine
 LABEL name="dingdayu <614422099@qq.com>"
 
-ENV VERSION=master
+ARG VERSION=master
 
 RUN apk add --no-cache --virtual .gyp python curl make g++
 RUN mkdir /yapi \
@@ -12,8 +12,8 @@ RUN mkdir /yapi \
 WORKDIR /yapi/vendors
 EXPOSE 3000
 
-RUN npm install -g yapi-cli --registry https://registry.npm.taobao.org \
-    && npm install --production --registry https://registry.npm.taobao.org
+RUN yarn global add yapi-cli \
+    && yarn install --production
 
 COPY entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["entrypoint.sh"]
